@@ -13,14 +13,12 @@
     <main>
         <div id="create-task-container" class="d-flex-column">
             <h3>Create a new task</h3>
-            <form action="" class="d-flex-column">
-                <label for="">Insert the title of the task</label>
-                <input type="text">
-
-                <label for="">Insert the description of the task</label>
-                <input type="text">
-                <button>Add Task</button>
-                <button>Reset</button>
+            <form id="form" action="" class="d-flex-column">
+                <div id="content-task">
+                    <label for="">Insert the description of the task</label>
+                    <input id="description" type="text">
+                </div>
+                <button type="button" id="add-task">Add Task</button>
             </form>
         </div>
 
@@ -37,7 +35,7 @@
                             <input type="checkbox" id="check">
                         </div>
                         <br>
-                        <button>Delete task</button>
+                        <button>Delete Task</button>
                     </div>
                 </li>
             </ul>
@@ -46,6 +44,6 @@
     <footer>
 
     </footer>
-    <scripts src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
