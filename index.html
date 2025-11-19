@@ -11,9 +11,9 @@
         <h2>To-Do List</h2>
     </header>
     <main>
-        <div>
+        <div id="create-task-container" class="d-flex-column">
             <h3>Create a new task</h3>
-            <form action="">
+            <form action="" class="d-flex-column">
                 <label for="">Insert the title of the task</label>
                 <input type="text">
 
@@ -22,15 +22,21 @@
                 <button>Add Task</button>
                 <button>Reset</button>
             </form>
+        </div>
 
+        <div id="list-tasks-container" class="d-flex-column">
             <h3>List of all the tasks</h3>
             <ul>
                 <li>
-                    <div>
+                    <div class="task-item d-flex-column">
                         <h4>Title</h4>
                         <p>Description</p>
-                        <label for="">Check task as completed: </label>
-                        <input type="checkbox">
+
+                        <div>
+                            <label for="check">Check task as completed:</label>
+                            <input type="checkbox" id="check">
+                        </div>
+                        <br>
                         <button>Delete task</button>
                     </div>
                 </li>
