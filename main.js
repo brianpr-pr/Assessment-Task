@@ -1,21 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let description = "";
+document.addEventListener('DOMContentLoaded', () => {
 
-    document.getElementById('description').addEventListener('input', () => {
-        description = document.getElementById('description').value.trim();
+    const addTaskButton = document.getElementById('add-task'); 
+    const description = document.getElementById('description');
+    
+    description.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addTaskButton.dispatchEvent(new Event('click'));
+        }
     });
 
-    document.getElementById('add-task').addEventListener("click", () => {
-        let contentTask = document.getElementById('content-task');
+    addTaskButton.addEventListener('click', () => {
+        const contentTask = document.getElementById('content-task');
         
         //If description is not empty we add new task to the list else show error message
-        if(description !== ""){
-            if(contentTask.querySelector(".error-message") !== null)
-                contentTask.removeChild( contentTask.querySelector(".error-message") );
-            addTask(description);
-        } else{
-            if(contentTask.querySelector(".error-message") === null)
-                contentTask.appendChild(createErrorMessage("Error Message"));
+        if(description.value.trim() !== ''){
+            if(contentTask.querySelector('.error-message') !== null){
+                contentTask.removeChild( contentTask.querySelector('.error-message') );
+            }
+            addTask(description.value.trim());
+            description.value = '';
+        }else {
+            if(contentTask.querySelector('.error-message') === null){
+                contentTask.appendChild(createErrorMessage('Please enter a task'));
+            }
         }
     });
 });
@@ -23,37 +31,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Returns a h5 element containing the argument that we passed
 function createErrorMessage(errorMessage){
-    ele = document.createElement("h5");
-    let text = document.createTextNode(errorMessage);
-    ele.appendChild(text);
-    ele.style.color = "red";
-    ele.classList.add('error-message');
-    return ele;
+    const errorMessageElement = createElementAndContent('h5', errorMessage, ['error-message']);
+    return errorMessageElement;
 }
 
+// Creates a new task
 function addTask(description){
-    let taskList = document.getElementById('task-list');
-
-    let liElement = document.createElement("li");
+    const taskList = document.getElementById('task-list');
+ 
+    const liElement = createElementAndContent('li');
     taskList.appendChild(liElement);
-    let divElement = document.createElement("div");
-    divElement.classList.add("task-item", "d-flex-column");
+    const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column']);
     liElement.appendChild(divElement);
 
-
-    let h4Element = document.createElement("h4");
-    h4Element.style.textAlign = "center";
-    let h4Content = document.createTextNode("Description");
-    h4Element.appendChild(h4Content);
+    const h4Element = createElementAndContent('h4', 'Description');
+    h4Element.style.textAlign = 'center';
     divElement.appendChild(h4Element);
 
-    let pElement = document.createElement("p");
-    let pContent = document.createTextNode(description);
-    pElement.appendChild(pContent);
+    const pElement = createElementAndContent('p', description);
     divElement.appendChild(pElement);
-
-    let buttonElement = document.createElement("button");
-    let buttonContent = document.createTextNode("Delete Task");
-    buttonElement.appendChild(buttonContent);
+ 
+    const buttonElement = createElementAndContent('button','Delete Task');
     divElement.appendChild(buttonElement);
+}
+
+
+//Auxiliar function for creating elements, text and classes are optional
+function createElementAndContent(tag, text = '', classes = []) {
+    const element = document.createElement(tag);
+
+    if (text) element.textContent = text;
+    classes.forEach(cls => element.classList.add(cls));
+
+    return element;
 }

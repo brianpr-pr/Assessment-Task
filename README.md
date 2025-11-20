@@ -26,3 +26,8 @@ Submission Requirements:
 Provide a link to the GitHub repository containing your solution (or a ZIP file with the project).
 
 Include a brief explanation of your approach, including any challenges faced or improvements you would add in the future.
+
+
+Challenges:
+
+How to handle the delete task button and the ids that should be linked to the tasks
