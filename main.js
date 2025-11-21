@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             addTask(description.value.trim());
             description.value = '';
+
+            const checkBoxNodeList = document.querySelectorAll('.checkbox-task');
+            checkBoxNodeList[--checkBoxNodeList.length].addEventListener("click", changeTaskState);
         }else {
             if(contentTask.querySelector('.error-message') === null){
                 contentTask.appendChild(createErrorMessage('Please enter a task'));
@@ -35,7 +38,9 @@ function createErrorMessage(errorMessage){
     return errorMessageElement;
 }
 
+
 // Creates a new task
+//Should i use the innerHTML property?
 function addTask(description){
     const taskList = document.getElementById('task-list');
  
@@ -51,6 +56,20 @@ function addTask(description){
     const pElement = createElementAndContent('p', description);
     divElement.appendChild(pElement);
  
+    const subDivElement = createElementAndContent('div');
+
+    const labelElement = createElementAndContent('label', 'Task completed:');
+    subDivElement.appendChild(labelElement);
+
+    const inputRadioElement = createElementAndContent('input','',['checkbox-task']);
+    inputRadioElement.type = 'checkbox';
+    subDivElement.appendChild(inputRadioElement);
+    divElement.appendChild(subDivElement);
+
+    const id = document.querySelectorAll('.checkbox-task').length-1;
+    labelElement.htmlFor = `id-${id}-checkbox-task`;
+    inputRadioElement.id = `id-${id}-checkbox-task`;
+
     const buttonElement = createElementAndContent('button','Delete Task');
     divElement.appendChild(buttonElement);
 }
@@ -64,4 +83,14 @@ function createElementAndContent(tag, text = '', classes = []) {
     classes.forEach(cls => element.classList.add(cls));
 
     return element;
+}
+
+
+const changeTaskState = function(event){
+    //Add line trough style for the description of the task
+    if(event.target.checked){
+        event.target.parentElement.previousSibling.style.textDecoration="line-through";
+    }else{
+        event.target.parentElement.previousSibling.style.textDecoration="none";
+    }
 }

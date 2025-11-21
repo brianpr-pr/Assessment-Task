@@ -30,4 +30,6 @@ Include a brief explanation of your approach, including any challenges faced or 
 
 Challenges:
 
-How to handle the delete task button and the ids that should be linked to the tasks
+Which way to manage the creation of a new task, using the innnerHTML property or creating the elements and what is the tradeoff.
+
+How to handle the delete task button and the ids that should be linked to the tasks.
