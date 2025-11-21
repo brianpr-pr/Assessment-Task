@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const description = document.getElementById('description');
     
     description.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
+        if(event.key === 'Enter'){
             event.preventDefault();
             addTaskButton.dispatchEvent(new Event('click'));
         }
@@ -22,24 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
             description.value = '';
 
             const checkBoxNodeList = document.querySelectorAll('.checkbox-task');
-            checkBoxNodeList[--checkBoxNodeList.length].addEventListener("click", changeTaskState);
-        }else {
+            checkBoxNodeList[--checkBoxNodeList.length].addEventListener('click', changeTaskState);
+        }else{
             if(contentTask.querySelector('.error-message') === null){
-                contentTask.appendChild(createErrorMessage('Please enter a task'));
+                contentTask.appendChild(createElementAndContent('h5', 'Please enter a task', ['error-message']));
             }
         }
     });
 });
 
-
-// Returns a h5 element containing the argument that we passed
-function createErrorMessage(errorMessage){
-    const errorMessageElement = createElementAndContent('h5', errorMessage, ['error-message']);
-    return errorMessageElement;
-}
-
-
 // Creates a new task
+
 //Should i use the innerHTML property?
 function addTask(description){
     const taskList = document.getElementById('task-list');
@@ -85,12 +78,11 @@ function createElementAndContent(tag, text = '', classes = []) {
     return element;
 }
 
-
-const changeTaskState = function(event){
+const changeTaskState = (event) => {
     //Add line trough style for the description of the task
     if(event.target.checked){
-        event.target.parentElement.previousSibling.style.textDecoration="line-through";
+        event.target.parentElement.previousSibling.style.textDecoration = 'line-through';
     }else{
-        event.target.parentElement.previousSibling.style.textDecoration="none";
+        event.target.parentElement.previousSibling.style.textDecoration = 'none';
     }
 }
