@@ -1,7 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const addTaskButton = document.getElementById('add-task'); 
-    const description = document.getElementById('description'); 
-    
+    const description = document.getElementById('description');
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = JSON.parse(localStorage.getItem('tasks') );
+    let checkBoxNodeList = document.querySelectorAll('.checkbox-task');
+    checkBoxNodeList.forEach(checkbox => {
+        checkbox.addEventListener('click', changeTaskState);
+    });
+    let deleteButton = document.querySelectorAll('.delete-task');
+    deleteButton.forEach(task => {
+        task.addEventListener('click', deleteTask);
+    });    
+
+    document.querySelectorAll('.li-task').forEach(liElementTask => {
+        console.log(liElementTask);
+        liElementTask.style.display = 'block';
+    });
+
     document.getElementById('filter-task').addEventListener('change', applyFilter);
 
     description.addEventListener('keydown', (event) => {
@@ -20,10 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 contentTask.removeChild( contentTask.querySelector('.error-message') );
             }
             addTask(description.value.trim());
+            
+            localStorage.setItem('tasks', JSON.stringify(taskList.innerHTML));
+
             description.value = '';
 
-            const checkBoxNodeList = document.querySelectorAll('.checkbox-task');
+            checkBoxNodeList = document.querySelectorAll('.checkbox-task');
             checkBoxNodeList[--checkBoxNodeList.length].addEventListener('click', changeTaskState);
+
+            deleteButton = document.querySelectorAll('.delete-task'); 
+            deleteButton[--deleteButton.length].addEventListener('click', deleteTask);
         }else{
             if(contentTask.querySelector('.error-message') === null){
                 contentTask.appendChild(createElementAndContent('h5', 'Please enter a task', ['error-message']));
@@ -38,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function addTask(description){
     const taskList = document.getElementById('task-list');
 
-    const liElement = createElementAndContent('li');
+    const liElement = createElementAndContent('li','',['li-task']);
     taskList.appendChild(liElement);
     const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column']);
     liElement.appendChild(divElement);
@@ -64,7 +86,7 @@ function addTask(description){
     labelElement.htmlFor = `id-${id}-checkbox-task`;
     inputRadioElement.id = `id-${id}-checkbox-task`;
 
-    const buttonElement = createElementAndContent('button','Delete Task');
+    const buttonElement = createElementAndContent('button','Delete Task', ['delete-task']);
     divElement.appendChild(buttonElement);
 }
 
@@ -83,11 +105,15 @@ const changeTaskState = (event) => {
     //Add line trough style for the description of the task
     if(event.target.checked){
         event.target.parentElement.previousSibling.style.textDecoration = 'line-through';
+        event.target.setAttribute('checked', 'checked');
     }else{
         event.target.parentElement.previousSibling.style.textDecoration = 'none';
+        event.target.removeAttribute('checked');
     }
 
     document.getElementById('filter-task').dispatchEvent(new Event('change'));
+
+    localStorage.setItem('tasks', JSON.stringify(document.getElementById('task-list').innerHTML));
 }  
 
 const applyFilter = (event) => {
@@ -95,22 +121,27 @@ const applyFilter = (event) => {
     [...taskList.children].forEach(task => {
         switch(event.target.value){
             case 'all':
-                task.style.display = 'block'
+                task.style.display = 'block';
                 break;
 
             case 'active':
-                task.style.display = 'block'
+                task.style.display = 'block';
                 if(task.querySelector('input').checked){
                     task.style.display = 'none';
                 }
                 break;
 
             case 'completed':
-                task.style.display = 'block'
-                if(!task.querySelector('input').checked){
+                task.style.display = 'block';
+                if(task.querySelector('input').checked === false){
                     task.style.display = 'none';
                 }
                 break;
         }
     });
+}
+
+const deleteTask = (event) =>{
+    event.target.parentElement.parentElement.remove();
+    localStorage.setItem('tasks', JSON.stringify(document.getElementById('task-list').innerHTML));
 }
