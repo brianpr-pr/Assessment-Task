@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const addTaskButton = document.getElementById('add-task'); 
-    const description = document.getElementById('description');
+    const description = document.getElementById('description'); 
     
+    document.getElementById('filter-task').addEventListener('change', applyFilter);
+
     description.addEventListener('keydown', (event) => {
         if(event.key === 'Enter'){
             event.preventDefault();
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //Should i use the innerHTML property?
 function addTask(description){
     const taskList = document.getElementById('task-list');
- 
+
     const liElement = createElementAndContent('li');
     taskList.appendChild(liElement);
     const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column']);
@@ -59,7 +60,7 @@ function addTask(description){
     subDivElement.appendChild(inputRadioElement);
     divElement.appendChild(subDivElement);
 
-    const id = document.querySelectorAll('.checkbox-task').length-1;
+    const id = --document.querySelectorAll('.checkbox-task').length;
     labelElement.htmlFor = `id-${id}-checkbox-task`;
     inputRadioElement.id = `id-${id}-checkbox-task`;
 
@@ -72,7 +73,7 @@ function addTask(description){
 function createElementAndContent(tag, text = '', classes = []) {
     const element = document.createElement(tag);
 
-    if (text) element.textContent = text;
+    if(text) element.textContent = text;
     classes.forEach(cls => element.classList.add(cls));
 
     return element;
@@ -85,4 +86,31 @@ const changeTaskState = (event) => {
     }else{
         event.target.parentElement.previousSibling.style.textDecoration = 'none';
     }
+
+    document.getElementById('filter-task').dispatchEvent(new Event('change'));
+}  
+
+const applyFilter = (event) => {
+    const taskList = document.getElementById('task-list');
+    [...taskList.children].forEach(task => {
+        switch(event.target.value){
+            case 'all':
+                task.style.display = 'block'
+                break;
+
+            case 'active':
+                task.style.display = 'block'
+                if(task.querySelector('input').checked){
+                    task.style.display = 'none';
+                }
+                break;
+
+            case 'completed':
+                task.style.display = 'block'
+                if(!task.querySelector('input').checked){
+                    task.style.display = 'none';
+                }
+                break;
+        }
+    });
 }

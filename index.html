@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel='stylesheet' href='style.css' type='text/css'>
 </head>
 <body>
     <header>
         <h2>To-Do List</h2>
     </header>
     <main>
-        <div id="create-task-container" class="d-flex-column">
+        <div id='create-task-container' class='d-flex-column'>
             <h3>Create a new task</h3>
-            <form id="form" action="" class="d-flex-column">
-                <div id="content-task">
-                    <label for="description">Insert the description of the task</label>
-                    <input id="description" type="text">
+            <form id='form' action='' class='d-flex-column'>
+                <div id='content-task'>
+                    <label for='description'>Insert the description of the task</label>
+                    <input id='description' type='text'>
                 </div>
-                <button type="button" id="add-task">Add Task</button>
+                <button type='button' id='add-task'>Add Task</button>
             </form>
         </div>
 
-        <div id="list-tasks-container" class="d-flex-column">
+        <div id='list-tasks-container' class='d-flex-column'>
             <h3>List of all the tasks</h3>
-            <ul id="task-list"></ul>
+            <div>
+                <label for='filter-task'>Filter:</label>
+                <select id='filter-task'>
+                    <option value='all'>All</option>
+                    <option value='active'>Active</option>
+                    <option value='completed'>Completed</option>
+                </select>
+            </div>
+            <ul id='task-list'>
+
+
+                
+            </ul>
         </div>
     </main>
     <footer>
 
     </footer>
-    <script src="./main.js"></script>
+    <script src='./main.js'></script>
 </body>
 </html>
