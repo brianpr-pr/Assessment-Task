@@ -1,60 +1,166 @@
+/* CSS Variables */
+:root{
+    --bg-dark: hsl(0 0% 0%);
+    --bg: hsl(0 0% 5%);
+    --bg-light: hsl(0 0% 10%);
+    --text: hsl(0 0% 95%);
+    --text-muted: hsl(0 0% 70%);
+    /* Change units? */
+    --rounded: 15px;
+    --rounded-sm: 10px;
+
+    --border: hsl(0 0% 30%);
+--hover: #e5ff60;
+    /* Safe colors */
+    --bg-main: hsl(90 100% 20);
+    --bg-main-dark: hsl(90 100% 7);
+}
+
 /* General Clases*/
 
-/* Layout */
+/* Cards */
+.card{
+    background: var(--bg);
+    border-radius:var(--rounded);
+}
+
+.card-element{
+    background: var(--bg-light);
+}
+
+/* Layouts */
 .d-flex-column{
     display: flex;
     flex-direction: column;
+}
+
+.align-center{
     align-items: center;
 }
 
-/* Text */
+/* Texts */
 .errorMessageElement{
     color:red;
 }
 
-
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.text-muted{
+    color: var(--text-muted);
 }
 
-main{
-    border: 2px solid red;
+/* Buttons */
+.main-button{
+    background: var(--bg-main);
+    color: var(--text);
+    border: var(--bg-main);
+    border-radius: var(--rounded-sm);
+    transition: 0.25s;
+}
 
-    #create-task-container{
-        border: 2px solid orange;
-        form{
-            border: 2px solid black;
-            *{
-                margin-top: 25px;
+.main-button:hover {
+  background: var(--bg-main-dark);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.checkbox-task{
+    accent-color: var(--bg-main);
+}
+
+/* Colors */
+.bg-main{
+    background: var(--bg-main);
+}
+
+
+/* Borders */
+.border{
+    border: 2px solid var(--border);
+}
+
+body{
+    min-height: 946px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    background: var(--bg-dark);
+    color: var(--text);
+
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    main{
+        flex: 1;
+        margin-top: 15px;
+
+        #create-task-container{
+            width: 75%;
+
+            form{
+                accent-color: var(--bg-main);
+                caret-color: var(--bg-main);
+                background: var(--bg-light);
+                /* How to avoid this */
+                border-radius: 0 0 var(--rounded) var(--rounded);
+                border-top: 2px solid var(--border);
+                *{
+                    margin-top: 25px;
+                }
+
+                #description{
+                    caret-color: var(--bg-main);
+                }
+
+                
+            }
+        }
+
+        #list-tasks-container{
+            ul{
+                padding: 0px;
+                margin: 0px;
+                list-style: none;            
+
+                #filter-task{
+                }
+
+                .task-item{
+                    height: 250px;
+                    width: 20%;
+                    min-width: 150px;
+
+                    
+                    .task-description{
+                        width: 85%;
+                        height: 50%;
+                        margin: 4% auto;
+                        padding: 0 3%;
+                        align-self: start;
+                        padding: 2px 3px;
+                    }
+
+                    .task-header{
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;
+                        justify-content: start;
+                    }
+
+                    .task-button{
+                        border-radius: var(--rounded-sm);
+                        color: var(--bg-main);
+                        border:2px solid var(--bg-main);
+                    }
+                }
             }
         }
     }
 
-    #list-tasks-container{
-        ul{
-            padding: 0px;
-            margin: 0px;
-            list-style: none;            
-            border: 2px solid green;
-
-            .task-item{
-
-                border: 3px solid pink;
-                
-                h4{
-                    text-align: center;
-                }
-
-                p{
-                    padding: 0 3%;
-                    align-self: start;
-                }
-
-                button{
-                }
-            }
-        }
+    footer{
+        /*margin-top: auto;*/
+        text-align: center;
     }
 }

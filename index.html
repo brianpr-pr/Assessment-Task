@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang='en'>
+
+<!--Must chagne-->
+<!--Font size change-->
+<!--Font style change-->
+
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>To-Do List</title>
     <link rel='stylesheet' href='style.css' type='text/css'>
 </head>
-<body>
-    <header>
-        <h2>To-Do List</h2>
+<body class="d-flex-column">
+    <header class="bg-main">
+        <h1>To-Do List</h1>
     </header>
-    <main display="none">
-        <div id='create-task-container' class='d-flex-column'>
-            <h3>Create a new task</h3>
-            <form id='form' action='' class='d-flex-column'>
+    <main class='d-flex-column align-center'>
+        <div id='create-task-container' class='card d-flex-column align-center border'>
+
+            <h2>Create a new task</h2>
+            <form id='form' action='' class='d-flex-column align-center'>
                 <div id='content-task'>
-                    <label for='description'>Insert the description of the task</label>
+                    <label class="text-muted" for='description'>Insert the description of the task</label>
+                    <!-- Should i change this for a textarea ?? -->
+                
                     <input id='description' type='text'>
                 </div>
-                <button type='button' id='add-task'>Add Task</button>
+                <button type='button' class="main-button " id='add-task'>Add Task</button>
             </form>
         </div>
 
-        <div id='list-tasks-container' class='d-flex-column'>
-            <h3>List of all the tasks</h3>
+        <div id='list-tasks-container' class='d-flex-column align-center'>
+            <h2>List of all the tasks</h2>
             <div>
                 <label for='filter-task'>Filter:</label>
                 <select id='filter-task'>
@@ -35,8 +43,8 @@
             <ul id='task-list'></ul>
         </div>
     </main>
-    <footer>
-
+    <footer class="bg-main">
+        <h1>General footer</h1>
     </footer>
     <script src='./main.js'></script>
 </body>

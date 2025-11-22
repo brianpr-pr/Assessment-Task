@@ -62,22 +62,22 @@ function addTask(description){
 
     const liElement = createElementAndContent('li','',['li-task']);
     taskList.appendChild(liElement);
-    const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column']);
+    const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column', 'align-center', 'card', 'border']);
     liElement.appendChild(divElement);
 
-    const h4Element = createElementAndContent('h4', 'Description');
+    const h4Element = createElementAndContent('h4', 'Description', ['task-header']);
     h4Element.style.textAlign = 'center';
     divElement.appendChild(h4Element);
 
-    const pElement = createElementAndContent('p', description);
+    const pElement = createElementAndContent('p', description, ['card-element', 'task-description']);
     divElement.appendChild(pElement);
  
     const subDivElement = createElementAndContent('div');
 
-    const labelElement = createElementAndContent('label', 'Task completed:');
+    const labelElement = createElementAndContent('label', 'Task completed:', ['text-muted']);
     subDivElement.appendChild(labelElement);
 
-    const inputRadioElement = createElementAndContent('input','',['checkbox-task']);
+    const inputRadioElement = createElementAndContent('input','',['checkbox-task', 'input-checkbox']);
     inputRadioElement.type = 'checkbox';
     subDivElement.appendChild(inputRadioElement);
     divElement.appendChild(subDivElement);
@@ -86,7 +86,7 @@ function addTask(description){
     labelElement.htmlFor = `id-${id}-checkbox-task`;
     inputRadioElement.id = `id-${id}-checkbox-task`;
 
-    const buttonElement = createElementAndContent('button','Delete Task', ['delete-task']);
+    const buttonElement = createElementAndContent('button','Delete Task', ['delete-task', 'task-button']);
     divElement.appendChild(buttonElement);
 }
 
