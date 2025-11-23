@@ -36,6 +36,11 @@
 }
 
 /* Display */
+
+.d-none{
+    display: none;
+}
+
 .d-flex-column{
     display: flex;
     flex-direction: column;

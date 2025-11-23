@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    const form = document.getElementById('form');
     const addTaskButton = document.getElementById('add-task'); 
     const description = document.getElementById('description');
     const taskList = document.getElementById('task-list');
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });    
 
     document.querySelectorAll('.li-task').forEach(liElementTask => {
-        console.log(liElementTask);
         liElementTask.style.display = 'block';
     });
 
@@ -28,13 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     addTaskButton.addEventListener('click', () => {
-        const contentTask = document.getElementById('content-task');
-        
         //If description is not empty we add new task to the list else show error message
         if(description.value.trim() !== ''){
+            form.querySelector('.error-message').classList.add('d-none');
+            /*
             if(contentTask.querySelector('.error-message') !== null){
                 contentTask.removeChild( contentTask.querySelector('.error-message') );
-            }
+            }*/
             addTask(description.value.trim());
             
             localStorage.setItem('tasks', JSON.stringify(taskList.innerHTML));
@@ -47,9 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton = document.querySelectorAll('.delete-task'); 
             deleteButton[--deleteButton.length].addEventListener('click', deleteTask);
         }else{
-            if(contentTask.querySelector('.error-message') === null){
-                contentTask.appendChild(createElementAndContent('h5', 'Please enter a task', ['error-message']));
-            }
+            form.querySelector('.error-message').classList.remove('d-none');
         }
     });
 });
