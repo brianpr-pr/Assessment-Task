@@ -39,6 +39,8 @@ Style:
 
 Add copyright in the footer.
 
+Make tasks bigger for bigger screens
+
 Apply a font-family.
 
 Change font-size of text.
