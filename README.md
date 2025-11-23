@@ -33,3 +33,14 @@ Challenges:
 Which way to manage the creation of a new task, using the innnerHTML property or creating the elements and what is the tradeoff.
 
 How to handle the delete task button and the ids that should be linked to the tasks.
+
+
+Style:
+
+Add copyright in the footer.
+
+Apply a font-family.
+
+Change font-size of text.
+
+Add favicon.

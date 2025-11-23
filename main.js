@@ -65,7 +65,7 @@ function addTask(description){
     const divElement = createElementAndContent('div', '', ['task-item', 'd-flex-column', 'align-center', 'card', 'border']);
     liElement.appendChild(divElement);
 
-    const h4Element = createElementAndContent('h4', 'Description', ['task-header']);
+    const h4Element = createElementAndContent('p', 'Description', ['task-header', 'quit-m-p']);
     h4Element.style.textAlign = 'center';
     divElement.appendChild(h4Element);
 

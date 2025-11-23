@@ -8,15 +8,22 @@
     /* Change units? */
     --rounded: 15px;
     --rounded-sm: 10px;
-
     --border: hsl(0 0% 30%);
     --hover: #e5ff60;
     /* Safe colors */
     --bg-main: hsl(90 100% 20);
     --bg-main-dark: hsl(90 100% 7);
+    /* Width */
 }
 
 /* General Clases*/
+
+/* Margin and padding */
+
+.quit-m-p{
+    margin: 0;
+    padding: 0;
+}
 
 /* Cards */
 .card{
@@ -28,11 +35,13 @@
     background: var(--bg-light);
 }
 
-/* Layouts */
+/* Display */
 .d-flex-column{
     display: flex;
     flex-direction: column;
 }
+
+/* Layouts */
 
 .align-center{
     align-items: center;
@@ -61,10 +70,6 @@
 
 body{
     min-height: 946px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-
     background: var(--bg-dark);
     color: var(--text);
 
@@ -82,9 +87,9 @@ body{
             width: 75%;
 
             form{
+                width: 100%;
                 accent-color: var(--bg-main);
                 caret-color: var(--bg-main);
-                background: var(--bg-light);
                 /* How to avoid this */
                 border-radius: 0 0 var(--rounded) var(--rounded);
                 border-top: 2px solid var(--border);
@@ -103,6 +108,7 @@ body{
                     border: var(--bg-main);
                     border-radius: var(--rounded-sm);
                     transition: 0.25s;
+                    margin-bottom: 20px;
                 }
 
                 .main-button:hover {
@@ -113,6 +119,8 @@ body{
                 
             }
         }
+
+
 
         #list-tasks-container{
             #filter-task{
@@ -129,21 +137,20 @@ body{
                 background: var(--bg-main-dark);
             }
 
-            ul{
-                padding: 0px;
-                margin: 0px;
-                list-style: none;            
+            #task-list{
+                .li-task{
+                    margin-bottom: 10px;
+                }
 
-                
+                list-style: none;            
 
                 .task-item{
                     height: 250px;
-                    width: 20%;
+                    width: 25%;
                     min-width: 150px;
-
-                    
+ 
                     .task-description{
-                        width: 85%;
+                        width: 75%;
                         height: 50%;
                         margin: 4% auto;
                         padding: 0 3%;
@@ -152,8 +159,6 @@ body{
                     }
 
                     .task-header{
-                        margin: 0;
-                        padding: 0;
                         text-align: center;
                         justify-content: start;
                     }
@@ -177,10 +182,5 @@ body{
                 }
             }
         }
-    }
-
-    footer{
-        /*margin-top: auto;*/
-        text-align: center;
     }
 }

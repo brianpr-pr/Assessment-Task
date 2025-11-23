@@ -7,26 +7,27 @@
 
 <head>
     <meta charset='UTF-8'>
+    <meta charset='UTF-8'>
+    <meta name='description' content='Todo list web page that allow users to create, eliminate and marks as completed their own tasks.'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>To-Do List</title>
     <link rel='stylesheet' href='style.css' type='text/css'>
 </head>
-<body class="d-flex-column">
-    <header class="bg-main">
+<body class='d-flex-column quit-m-p'>
+    <header class='bg-main'>
         <h1>To-Do List</h1>
     </header>
     <main class='d-flex-column align-center'>
         <div id='create-task-container' class='card d-flex-column align-center border'>
 
             <h2>Create a new task</h2>
-            <form id='form' action='' class='d-flex-column align-center'>
-                <div id='content-task'>
-                    <label class="text-muted" for='description'>Insert the description of the task</label>
+            <form id='form' action='' class='d-flex-column align-center card-element'>
+                <div id='content-task' class='d-flex-column'>
+                    <label style='text-align: center;' class='text-muted' for='description'>Insert the description of the task</label>
                     <!-- Should i change this for a textarea ?? -->
-                
                     <input id='description' type='text'>
                 </div>
-                <button type='button' class="main-button " id='add-task'>Add Task</button>
+                <button type='button' class='main-button ' id='add-task'>Add Task</button>
             </form>
         </div>
 
@@ -40,10 +41,10 @@
                     <option value='completed'>Completed</option>
                 </select>
             </div>
-            <ul id='task-list'></ul>
+            <ul class='quit-m-p' id='task-list'></ul>
         </div>
     </main>
-    <footer class="bg-main">
+    <footer class='bg-main d-flex-column align-center'>
         <h1>General footer</h1>
     </footer>
     <script src='./main.js'></script>
