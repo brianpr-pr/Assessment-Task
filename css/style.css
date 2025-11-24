@@ -91,9 +91,11 @@ main{
 }
 #create-task-container{
     width: 75%;
+    height: 250px;
 }
 
 #form{
+    height: 100%;
     width: 100%;
     accent-color: var(--bg-main);
     caret-color: var(--bg-main);
@@ -101,7 +103,7 @@ main{
     border-radius: 0 0 var(--rounded) var(--rounded);
     border-top: 2px solid var(--border);
     *{
-        margin-top: 25px;
+        margin-top: 15px;
     }
 }
 
@@ -147,7 +149,7 @@ transform: translateY(-0.25em);
 }
 
 #task-list{
-    margin-top: 20px;
+    margin-top: 55px;
     width: 100%;
     display: grid;
     justify-content: center;
@@ -160,7 +162,7 @@ transform: translateY(-0.25em);
 .li-task{
     justify-self: center;
     width: 75%;
-    height: 250px;
+    height: 550px;
     margin-bottom: 15px;
 }
 
@@ -170,7 +172,7 @@ transform: translateY(-0.25em);
 
 .task-description{
     width: 75%;
-    height: 50%;
+    height: 75%;
     margin: 4% auto;
     padding: 0 3%;
     align-self: start;
@@ -186,10 +188,11 @@ transform: translateY(-0.25em);
 }
 
 .task-button{
-    margin-top: 24px;
+    margin-top: 12px;
     border-radius: var(--rounded-sm);
     color: var(--bg-main);
     border:2px solid var(--bg-main);
+    margin-bottom: 12px;
 }
 
 .task-button:hover{
@@ -201,6 +204,12 @@ transform: translateY(-0.25em);
 
 .checkbox-task{
     accent-color: var(--bg-main);
+}
+
+@media (min-width: 300px){ 
+    .li-task{
+        height: 375px;
+    }
 }
 
 @media (min-width: 612px){ 

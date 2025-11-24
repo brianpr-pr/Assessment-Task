@@ -37,7 +37,7 @@
                 <div id='content-task' class='d-flex-column'>
                     <label style='text-align: center;' class='text-muted' for='description'>Insert the description of the task</label>
                     <!-- Should i change this for a textarea ?? -->
-                    <input id='description' type='text'>
+                    <input id='description' maxlength="290" type='text'>
                 </div>
                 <div style="height: 25px;">
                     <h5 class="error-message d-none">Please enter a task</h5>
@@ -47,7 +47,7 @@
         </div>
 
         <div id='list-tasks-container' class='d-flex-column align-center'>
-            <h2>List of all the tasks</h2>
+            <h2 id="list-title">List of all the tasks</h2>
             <div>
                 <label for='filter-task'>Filter:</label>
                 <select id='filter-task'>
@@ -63,5 +63,6 @@
         <h1>General footer</h1>
     </footer>
     <script src='./js/app.js'></script>
+    <script src="./js/effects.js"></script>
 </body>
 </html>

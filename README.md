@@ -47,4 +47,8 @@ Change font-size of text.
 
 Add favicon.
 
-Add animations
+Add animations.
+
+Apply padding where necesary for text.
+
+Make the input box responsive.
