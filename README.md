@@ -34,13 +34,10 @@ Which way to manage the creation of a new task, using the innnerHTML property or
 
 How to handle the delete task button and the ids that should be linked to the tasks.
 
-
 Style:
 
 Add copyright in the footer.
 
-Apply a font-family.
-
 Add animations.
 
-Make the input box responsive.
+Make the input box responsive or change it for textarea element.
