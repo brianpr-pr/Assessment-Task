@@ -15,10 +15,6 @@ When the user types in the input field and clicks the "Add" button, the task sho
 If the input field is empty and the user clicks "Add", show an error message saying "Please enter a task".
 When a task's checkbox is clicked, the task should be marked as completed (e.g., apply a line-through style).
 Each task should have a "Delete" button that, when clicked, removes the task from the list.
-
-
-Additional Features (Optional but encouraged):
-
 Task Persistence: Use localStorage to save the list of tasks so that when the page is reloaded, the tasks persist.
 Task Filtering: Allow users to filter tasks by "All", "Active", or "Completed" status.
 
@@ -26,18 +22,3 @@ Submission Requirements:
 Provide a link to the GitHub repository containing your solution (or a ZIP file with the project).
 
 Include a brief explanation of your approach, including any challenges faced or improvements you would add in the future.
-
-
-Challenges:
-
-Which way to manage the creation of a new task, using the innnerHTML property or creating the elements and what is the tradeoff.
-
-How to handle the delete task button and the ids that should be linked to the tasks.
-
-Style:
-
-Add copyright in the footer.
-
-Add animations.
-
-Make the input box responsive or change it for textarea element.
