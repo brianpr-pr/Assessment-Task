@@ -41,10 +41,6 @@ Add copyright in the footer.
 
 Apply a font-family.
 
-Change font-size of text.
-
 Add animations.
-
-Apply padding where necesary for text.
 
 Make the input box responsive.
