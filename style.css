@@ -129,7 +129,6 @@ transform: translateY(-0.25em);
 
 
 #list-tasks-container{
-    border: 2px solid red;
     width: 75%;
 }
 
@@ -149,9 +148,9 @@ transform: translateY(-0.25em);
 
 #task-list{
     width: 100%;
-    border: 2px solid green;
     display: grid;
     justify-content: center;
+    row-gap: 15px;
     grid-template-columns: repeat(1, 1fr);
     grid-auto-flow: row;
     list-style: none;            
@@ -159,14 +158,12 @@ transform: translateY(-0.25em);
     
 .li-task{
     justify-self: center;
-    margin-bottom: 15px;
-    border: 2px solid blue;
+    width: 75%;
+    height: 250px;
 }
 
 .task-item{
-    height: 250px;
-    width: 25%;
-    min-width: 150px;
+    height: 100%;
 }
 
 .task-description{
@@ -201,6 +198,9 @@ transform: translateY(-0.25em);
     accent-color: var(--bg-main);
 }
 
+footer{
+    margin-top: 15px;
+}
 
 @media (min-width: 612px){ 
     #task-list{
