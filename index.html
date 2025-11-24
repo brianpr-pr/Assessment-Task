@@ -39,7 +39,7 @@
                     <!-- Should i change this for a textarea ?? -->
                     <input id='description' maxlength="290" type='text'>
                 </div>
-                <div style="height: 25px;">
+                <div id="message-error-container">
                     <h5 class="error-message d-none">Please enter a task</h5>
                 </div>
                 <button type='button' class='main-button ' id='add-task'>Add Task</button>
@@ -49,7 +49,6 @@
         <div id='list-tasks-container' class='d-flex-column align-center'>
             <h2 id="list-title">List of all the tasks</h2>
             <div>
-                <label for='filter-task'>Filter:</label>
                 <select id='filter-task'>
                     <option value='all'>All</option>
                     <option value='active'>Active</option>
