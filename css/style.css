@@ -174,7 +174,10 @@ transform: translateY(-0.25em);
     margin: 4% auto;
     padding: 0 3%;
     align-self: start;
-    padding: 2px 3px;
+    padding: 5px 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .task-header{
