@@ -46,3 +46,5 @@ Apply a font-family.
 Change font-size of text.
 
 Add favicon.
+
+Add animations
